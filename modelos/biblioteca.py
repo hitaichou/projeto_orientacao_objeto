@@ -1,24 +1,22 @@
 class Biblioteca:
-    nome = ""
-    ativo = False
+    bibliotecas = []
+    def __init__(self, nome):
+        self.nome = nome
+        self.ativo = "False"        
+        Biblioteca.bibliotecas.append(self) #adiciona a biblioteca na lista de bibliotecas
+    
+    def __str__(self):
+        return self.nome
+    
+    def listar_bibliotecas():
+        for biblioteca in Biblioteca.bibliotecas:
+            print(f"{biblioteca.nome} | Ativo: {biblioteca.ativo}")
+    
+biblioteca_cidade = Biblioteca("Biblioteca da Cidade") 
+biblioteca_shopping = Biblioteca("Biblioteca do Shopping")  
 
-biblioteca_cidade = Biblioteca()
-biblioteca_cidade.nome = "Biblioteca da cidade"
-biblioteca_cidade.ativo = True
+ 
+print(biblioteca_cidade)  # Output: Biblioteca da Cidade
+print(biblioteca_shopping)  # Output: Biblioteca do Shopping
 
-biblioteca_shopping = Biblioteca()
-
-# Lista de objetos da classe Biblioteca
-bibliotecas = [biblioteca_cidade, biblioteca_shopping] 
-
-# A função vars() em Python retorna o __dict__ (dicionário de atributos) de um objeto, 
-# que contém todos os atributos do objeto e seus valores correspondentes.
-# No caso do exemplo fornecido, vars(biblioteca_cidade) retornará um dicionário 
-# com os atributos 'nome' e 'ativo' do objeto biblioteca_cidade.
-print(vars(biblioteca_cidade))  
-
-print(vars(biblioteca_shopping)) # Retorna um dicionário vazio, pois nenhum atributo foi definido para este objeto.
-
-# Exibindo os atributos de todos os objetos na lista bibliotecas
-for biblioteca in bibliotecas:
-    print(vars(biblioteca))
+Biblioteca.listar_bibliotecas()
