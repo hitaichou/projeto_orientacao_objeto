@@ -6,7 +6,7 @@ class Biblioteca:
         self.nome = nome
         #inicialmente desativada, utilizo underscore para indicar atributo privado
         self._ativo = False 
-        self._avaliacoes = []  #lista para armazenar avaliações da biblioteca
+        self._avaliacao = []  #lista para armazenar avaliações da biblioteca
         Biblioteca.bibliotecas.append(self) #adiciona a biblioteca na lista de bibliotecas
     
     def __str__(self):
@@ -14,9 +14,9 @@ class Biblioteca:
     
     @classmethod #método de classe para listar todas as bibliotecas
     def listar_bibliotecas(cls): #cls refere-se à própria classe sem necessidade de instanciar um objeto
-        print(f"{'Nome da Biblioteca'.ljust(25)} | {'Estado'}") #crio o cabeçalho da tabela
+        print(f"{'Nome da Biblioteca'.ljust(25)} | {'Nota Média'.ljust(25)} | {'Estado'}") #crio o cabeçalho da tabela
         for biblioteca in Biblioteca.bibliotecas:
-            print(f"{biblioteca.nome.ljust(25)} | Ativo: {biblioteca.ativo}") #ljust alinha o texto à esquerda com 25 caracteres de largura
+            print(f"{biblioteca.nome.ljust(25)} | {str(biblioteca.media_avaliacao).ljust(25)} | Ativo: {biblioteca.ativo}") #ljust alinha o texto à esquerda com 25 caracteres de largura
     
     #alterna o estado da biblioteca entre ativo e inativo
     #busca o atributo privado _ativo e inverte seu valor 
@@ -33,4 +33,13 @@ class Biblioteca:
 
     def receber_avaliacao(self, cliente, nota):
         avaliacao = Avaliacao(cliente, nota)  #cria uma nova avaliação
-        self._avaliacoes.append(avaliacao)    #adiciona a avaliação à lista de avaliações da biblioteca
+        self._avaliacao.append(avaliacao)    #adiciona a avaliação à lista de avaliações da biblioteca
+        
+    
+    @property
+    def media_avaliacao(self):
+        if not self._avaliacao:
+            return '-'  #retorna "-"" se não houver avaliações
+        soma = sum(avaliacao._nota for avaliacao in self._avaliacao) #soma todas as notas das avaliações
+        media = round(soma / len(self._avaliacao),1)  #calcula a média das notas
+        return media
