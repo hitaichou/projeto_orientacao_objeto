@@ -7,6 +7,7 @@ Biblioteca_cidade.alterna_estado()  # Ativa a biblioteca
 
 Biblioteca_cidade.receber_avaliacao("Fulano", 8.5)
 Biblioteca_cidade.receber_avaliacao("Siclano", 9.5)
+Biblioteca_cidade.receber_avaliacao("Siclano", 6.5)
 
 def main():
     Biblioteca.listar_bibliotecas()
