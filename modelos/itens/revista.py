@@ -1,0 +1,6 @@
+from modelos.itens.item_biblioteca import ItemBiblioteca
+# Classe especializada que herda de ItemBiblioteca e adiciona novos atributos
+class Revista(ItemBiblioteca):
+    def __init__(self, titulo, autor, preco, edicao):
+        super().__init__(titulo, autor, preco)  # Chama o construtor da classe pai
+        self._edicao = edicao
