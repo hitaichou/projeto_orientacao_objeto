@@ -1,16 +1,34 @@
 from modelos.biblioteca import Biblioteca
 
+"""
+Comandos para inspecionar módulos em Python
+
+import modelos.itens.item_biblioteca as mod
+import inspect
+
+print("ARQUIVO:", mod.__file__)
+print("DIR:", dir(mod))
+print("SOURCE:\n", inspect.getsource(mod))
+"""
+from modelos.itens.livro import Livro
+from modelos.itens.revista import Revista
+
 Biblioteca_cidade = Biblioteca("Biblioteca da Cidade")
 Biblioteca_shopping = Biblioteca("Biblioteca do Shopping")
 
-Biblioteca_cidade.alterna_estado()  # Ativa a biblioteca
+livro1 = Livro("1984", "George Orwell", 30.00, "084-3245")
+revista1 = Revista("National Geographic", "John Doe", 15.00, "Quinta")
 
-Biblioteca_cidade.receber_avaliacao("Fulano", 8.5)
-Biblioteca_cidade.receber_avaliacao("Siclano", 9.5)
-Biblioteca_cidade.receber_avaliacao("Siclano", 6.5)
+#Biblioteca_cidade.alterna_estado()  # Ativa a biblioteca
+
+#Biblioteca_cidade.receber_avaliacao("Fulano", 8.5)
+#Biblioteca_cidade.receber_avaliacao("Siclano", 9.5)
+#Biblioteca_cidade.receber_avaliacao("Siclano", 6.5)
 
 def main():
-    Biblioteca.listar_bibliotecas()
+    #Biblioteca.listar_bibliotecas()
+    print(vars(livro1))
+    print(vars(revista1))
 
 if __name__ == "__main__":
     main()
