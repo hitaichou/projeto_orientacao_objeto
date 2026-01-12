@@ -20,6 +20,9 @@ livro1 = Livro("1984", "George Orwell", 30.00, "084-3245")
 livro2 = Livro("A Revolução dos Bichos", "George Orwell", 25.00, "084-3246")
 revista1 = Revista("National Geographic", "John Doe", 15.00, "Quinta")
 
+livro1.aplicar_desconto()
+revista1.aplicar_desconto()
+
 Biblioteca_cidade.adicionar_item(livro1)
 Biblioteca_cidade.adicionar_item(livro2)
 Biblioteca_cidade.adicionar_item(revista1)
